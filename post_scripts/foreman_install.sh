@@ -29,9 +29,9 @@ echo "192.168.25.42 captain.avengers.lan foreman" >> /etc/hosts
 #	--puppet-server-reports=foremansvc \
 #	--enable-foreman-plugin-salt \
 #	--enable-foreman-proxy-plugin-salt
-######################################
-#Install Foreman with DHCP and TFTP enabled   #
-######################################
+#######################################################
+#Install Foreman with DHCP, TFTP, and Libvirt enabled #
+#######################################################
 foreman-installer \
   --enable-foreman-proxy \
   --foreman-proxy-dhcp=true \
@@ -41,7 +41,9 @@ foreman-installer \
   --foreman-proxy-dhcp-nameservers="192.168.25.55,192.168.25.1" \
   --foreman-proxy-dhcp-search-domains="foreman.lan" \
   --enable-foreman-plugin-dhcp-browser \
-  --foreman-proxy-tftp true
+  --foreman-proxy-tftp true \
+  --enable-foreman-compute-libvirt
+
 ### Maybe add --foreman-proxy-tftp-servername $(hostname)
 ### See https://access.redhat.com/solutions/2832531
 ######################################
